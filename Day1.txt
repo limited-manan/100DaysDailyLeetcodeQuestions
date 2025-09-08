@@ -1,0 +1,28 @@
+Question No. -> 3005. Count Elements With Maximum Frequency
+Type of Question -> Easy
+
+
+CODE: 
+
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int,int> mpp;
+        for(int i =0;i<n;i++){
+            mpp[nums[i]]++;
+        }
+
+        int maxi = INT_MIN;
+        for(auto ele: mpp){
+            maxi = max(ele.second, maxi);
+        }
+        int cnt = 0;
+        for(auto el: mpp){
+            if(el.second == maxi){
+                cnt = cnt + el.second;
+            }
+        }
+        return cnt;
+    }
+};
