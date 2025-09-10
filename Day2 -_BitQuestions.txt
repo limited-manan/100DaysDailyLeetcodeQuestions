@@ -1,0 +1,47 @@
+(1). Question No. -> 190. Reverse Bits
+Type of Question -> Easy
+
+CODE: 
+
+class Solution {
+public:
+    int reverseBits(int n) {
+        int result = 0;
+        for(int i =0;i< 32;i++){
+            int lsb = n & 1;
+            int reverseLsb = lsb << (31-i);
+            result = result | reverseLsb;
+            n = n >> 1;
+        }
+        return result;
+    }
+};
+
+******************************************************************************
+
+(2). Question No. -> 201. Bitwise AND of Numbers Range
+Type of Question -> Medium
+
+CODE:
+
+class Solution {
+public:
+    int rangeBitwiseAnd(int left, int right) {
+
+        // Approach 1
+        int cnt = 0;
+        while(left != right){
+            left = left >> 1;
+            right = right >> 1;
+            cnt++;
+        }
+        return left << cnt; // T.C -> O(logn)
+
+
+        // Approach 2
+        while(right > left){
+            right = right & (right-1);
+        }
+        return right; // T.C -> O(logn)
+    }
+};
