@@ -1,0 +1,56 @@
+Question No. -> 149. Max Points on a Line
+Type of Question -> Hard
+
+CODE:
+
+class Solution {
+public:
+    int maxPoints(vector<vector<int>>& points) {
+        // Brute Force Approach
+        int n = points.size();
+        if (n == 1) {
+            return 1;
+        }
+        // int result = 0;
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = i + 1; j < n; j++) {
+        //         int cnt = 2;
+        //         int dx = points[j][0] - points[i][0];
+        //         int dy = points[j][1] - points[i][1];
+        //         for (int k = 0; k < n; k++) {
+        //             if (k != i && k != j) {
+        //                 int dx_ = points[k][0] - points[i][0];
+        //                 int dy_ = points[k][1] - points[i][1];
+
+        //                 if (dy * dx_ == dx * dy_) {
+        //                     cnt++;
+        //                 }
+        //             }
+        //         }
+        //         result = max(result, cnt);
+        //     }
+        // }
+        // return result;
+
+        // Optimal Approach
+
+        int result = 0;
+        for(int i =0;i<n;i++){
+            unordered_map<double,int> mpp;
+            for(int j =0;j<n;j++){
+                if(j==i) continue;
+
+                auto dx = points[j][0] - points[i][0];
+                auto dy = points[j][1] - points[i][1];
+
+                auto theta = atan2(dy,dx);
+                mpp[theta]++;
+            }
+
+            for(auto it: mpp){
+                result = max(result , it.second +1);
+            }
+        }
+        return result;
+    }
+};
