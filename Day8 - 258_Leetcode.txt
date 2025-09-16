@@ -1,0 +1,29 @@
+Question No. -> 258. Add Digits
+Type of Question -> Easy
+
+CODE:
+
+class Solution {
+public:
+    int addDigits(int n) {
+
+        // Brute Force Approach
+        if (n == 0)
+            return 0;
+        while (n >= 10) {
+            int sum = 0;
+            while (n > 0) {
+                sum += n % 10;
+                n /= 10;
+            }
+            n = sum;
+        }
+        return n;
+
+
+        // Opimal Using Math Function
+
+        if(n == 0) return 0;
+        return 1 + (n -1) % 9 ;
+    }
+};
