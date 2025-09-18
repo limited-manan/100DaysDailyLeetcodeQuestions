@@ -1,0 +1,11 @@
+Question No. -> 319. Bulb Switcher
+Type of Question -> Medium
+
+CODE:
+
+class Solution {
+public:
+    int bulbSwitch(int n) {
+        return sqrt(n);
+    }
+};
