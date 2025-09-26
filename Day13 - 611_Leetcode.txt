@@ -1,4 +1,5 @@
-
+Question No. -> 611. Valid Triangle Number
+Type of Question -> Medium
 
 CODE:
 
