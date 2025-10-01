@@ -1,0 +1,11 @@
+Question No. -> 1518. Water Bottles
+Type of Question -> Easy
+
+CODE:
+
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+        return numBottles + (numBottles-1)/(numExchange - 1);
+    }
+};
